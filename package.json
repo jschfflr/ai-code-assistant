@@ -2,7 +2,7 @@
   "name": "ai-code-assistant",
   "displayName": "AI Code Assistant",
   "description": "Access OpenAI's ChatGPT directly from within VS Code for better productivity",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "engines": {
     "vscode": "^1.76.0"
   },
@@ -37,7 +37,7 @@
           "default": "",
           "markdownDescription": "API Key for OpenAI. You can find your key in your [OpenAI account](https://platform.openai.com/account/api-keys). If you don't have an account already, you can use the link to sign up.\n\n_It is considered best practice to create a new key for this extension instead of using one that you also use elsewhere._"
         }
-      } 
+      }
     }
   },
   "scripts": {
