@@ -1,16 +1,23 @@
 {
-  "name": "ai-code-assist",
-  "displayName": "ai-code-assist",
-  "description": "",
+  "name": "ai-code-assistant",
+  "displayName": "AI Code Assistant",
+  "description": "Access OpenAI's ChatGPT directly from within VS Code for better productivity",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.76.0"
   },
+  "publisher": "janscheffler",
+  "author": {
+    "name": "Jan Scheffler",
+    "email": "contact@janscheffler.com"
+  },
   "repository": {
     "type": "git",
-    "url": "git@github.com:jschfflr/code-assistant-ai.git"
+    "url": "https://github.com/jschfflr/ai-code-assistant"
   },
   "categories": [
+    "Programming Languages",
+    "Snippets",
     "Other"
   ],
   "activationEvents": [],
@@ -18,7 +25,7 @@
   "contributes": {
     "commands": [
       {
-        "command": "ai-code-assist.show-code-assistant",
+        "command": "ai-code-assistant.show-code-assistant",
         "title": "Code Assistant"
       }
     ],

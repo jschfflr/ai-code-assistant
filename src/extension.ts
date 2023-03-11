@@ -3,7 +3,7 @@ import { CodeAssistantPanel } from "./panels/CodeAssistantPanel";
 
 
 export function activate(context: vscode.ExtensionContext) {
-	const helloCommand = vscode.commands.registerCommand("ai-code-assist.show-code-assistant", () => {
+	const helloCommand = vscode.commands.registerCommand("ai-code-assistant.show-code-assistant", () => {
 		CodeAssistantPanel.render(context.extensionUri);
 	});
 

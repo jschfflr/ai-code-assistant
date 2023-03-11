@@ -87,7 +87,7 @@ export class CodeAssistantPanel {
     } else {
       const panel = vscode.window.createWebviewPanel(
         "code-assistant",
-        "Code Assistant",
+        "AI Code Assistant",
         vscode.ViewColumn.Beside,
         {
           enableScripts: true,
