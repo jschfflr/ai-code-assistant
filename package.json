@@ -1,0 +1,70 @@
+{
+  "name": "ai-code-assist",
+  "displayName": "ai-code-assist",
+  "description": "",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.76.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "ai-code-assist.show-code-assistant",
+        "title": "Code Assistant"
+      }
+    ],
+    "configuration": {
+      "title": "Code Assistant",
+      "properties": {
+        "codeAssistantAi.openaiApiKey": {
+          "type": "string",
+          "default": "",
+          "markdownDescription": "API Key for OpenAI. You can find your key in your [OpenAI account](https://platform.openai.com/account/api-keys). If you don't have an account already, you can use the link to sign up.\n\n_It is considered best practice to create a new key for this extension instead of using one that you also use elsewhere._"
+        }
+      } 
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "node ./esbuild.js",
+    "watch": "npm run compile -- --watch",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js",
+    "package": "NODE_ENV=production npm run compile"
+  },
+  "devDependencies": {
+    "@types/glob": "^8.0.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "16.x",
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "@types/vscode": "^1.76.0",
+    "@types/vscode-webview": "^1.57.1",
+    "@typescript-eslint/eslint-plugin": "^5.45.0",
+    "@typescript-eslint/parser": "^5.45.0",
+    "@vscode/test-electron": "^2.2.0",
+    "esbuild": "^0.16.17",
+    "eslint": "^8.28.0",
+    "glob": "^8.0.3",
+    "mocha": "^10.1.0",
+    "rehype-parse": "^8.0.4",
+    "rehype-react": "^7.1.2",
+    "typescript": "^4.9.3"
+  },
+  "dependencies": {
+    "@microsoft/fast-react-wrapper": "^0.3.16-0",
+    "@vscode/webview-ui-toolkit": "^1.2.2",
+    "highlight.js": "^11.7.0",
+    "openai": "^3.2.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-markdown": "^8.0.5",
+    "rehype-highlight": "^6.0.0"
+  }
+}
