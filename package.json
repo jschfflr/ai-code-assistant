@@ -6,6 +6,10 @@
   "engines": {
     "vscode": "^1.76.0"
   },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:jschfflr/code-assistant-ai.git"
+  },
   "categories": [
     "Other"
   ],
