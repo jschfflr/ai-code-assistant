@@ -47,7 +47,8 @@
     "pretest": "npm run build && npm run lint",
     "lint": "eslint src --ext ts",
     "test": "node ./out/test/runTest.js",
-    "package": "NODE_ENV=production npm run build"
+    "package": "NODE_ENV=production npm run build",
+    "publish": "vsce publish"
   },
   "devDependencies": {
     "@types/glob": "^8.0.0",
