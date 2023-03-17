@@ -42,12 +42,12 @@
   },
   "scripts": {
     "vscode:prepublish": "npm run package",
-    "compile": "node ./esbuild.js",
-    "watch": "npm run compile -- --watch",
-    "pretest": "npm run compile && npm run lint",
+    "build": "node ./esbuild.js",
+    "watch": "npm run build -- --watch",
+    "pretest": "npm run build && npm run lint",
     "lint": "eslint src --ext ts",
     "test": "node ./out/test/runTest.js",
-    "package": "NODE_ENV=production npm run compile"
+    "package": "NODE_ENV=production npm run build"
   },
   "devDependencies": {
     "@types/glob": "^8.0.0",
