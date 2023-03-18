@@ -13,7 +13,7 @@
 		"noImplicitReturns": true,
 		"noFallthroughCasesInSwitch": true,
 		"noUnusedParameters": true,
-		"jsx": "react-jsxdev",
-		"esModuleInterop": true,
+		"jsx": "react-jsx",
+		"esModuleInterop": true
 	}
 }
