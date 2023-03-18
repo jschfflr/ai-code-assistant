@@ -17,6 +17,8 @@ jobs:
         node-version: 16.x
     - name: Install dependencies
       run: npm install
+    - name: Lint
+      run: npm run lint
     - name: Build
       run: NODE_ENV=production npm run build
     - name: Publish
