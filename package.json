@@ -2,7 +2,7 @@
   "name": "ai-code-assistant",
   "displayName": "AI Code Assistant",
   "description": "Access OpenAI's ChatGPT with GPT 3 or GPT 4 directly from within VS Code for better productivity",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "engines": {
     "vscode": "^1.76.0"
   },
@@ -40,7 +40,10 @@
         "codeAssistantAi.openaiModel": {
           "type": "string",
           "default": "gpt-3.5-turbo",
-          "enum": ["gpt-3.5-turbo", "gpt-4"],
+          "enum": [
+            "gpt-3.5-turbo",
+            "gpt-4"
+          ],
           "markdownDescription": "The model version to use. See OpenAI's [Model Overview](https://platform.openai.com/docs/models/overview) for details.\n\n _GPT 4 is in limited beta and only accessible to those who have been granted access. Please join the [waitlist](https://openai.com/waitlist/gpt-4) to get access when capacity is available._"
         }
       }
