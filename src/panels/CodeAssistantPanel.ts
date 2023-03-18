@@ -2,29 +2,40 @@ import * as vscode from "vscode";
 import { getUri } from "../utilities/getUri";
 import { getNonce } from "../utilities/getNonce";
 
+interface Config {
+  openaiApiKey: string;
+  openaiModel: string;
+}
+
+
 export class CodeAssistantPanel {
   public static currentPanel: CodeAssistantPanel | undefined;
   private readonly _panel: vscode.WebviewPanel;
   private _disposables: vscode.Disposable[] = [];
-  private apiKey?: string;
+  private config?: Config;
 
   private constructor(panel: vscode.WebviewPanel, extensionUri: vscode.Uri) {
     this._panel = panel;
     this._panel.onDidDispose(() => this.dispose(), null, this._disposables);
     this._setWebviewMessageListener(this._panel.webview);
 
-    const config = vscode.workspace.getConfiguration('codeAssistantAi');
-    const apiKey = config.get<string>('openaiApiKey');
-    this.apiKey = apiKey;
+    this.loadConfig();
 
     vscode.workspace.onDidChangeConfiguration((e: vscode.ConfigurationChangeEvent) => {
-      if (!e.affectsConfiguration('codeAssistantAi')) {return;}
-      const config = vscode.workspace.getConfiguration('codeAssistantAi');
-      this.apiKey = config.get<string>('openaiApiKey');
+      if (!e.affectsConfiguration('codeAssistantAi')) { return; }
+      this.loadConfig();
       this._panel.webview.html = this._getWebviewContent(this._panel.webview, extensionUri);
     });
 
     this._panel.webview.html = this._getWebviewContent(this._panel.webview, extensionUri);
+  }
+
+  private loadConfig() {
+    const config = vscode.workspace.getConfiguration('codeAssistantAi');
+    this.config = {
+      openaiApiKey: config.get<string>('openaiApiKey') as string,
+      openaiModel: config.get<string>('openaiModel') as string,
+    };
   }
 
   public dispose() {
@@ -56,7 +67,7 @@ export class CodeAssistantPanel {
           <link rel="stylesheet" nonce="${nonce}" href="${webviewCSSUri}" />
         </head>
         <body>
-          <script type="application/json" id="openai-api-key">${JSON.stringify(this.apiKey)}</script>
+          <script type="application/json" id="config">${JSON.stringify(this.config)}</script>
           <div id="root"></div>
           <script type="module" nonce="${nonce}" src="${webviewJSUri}"></script>
         </body>
